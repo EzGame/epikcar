@@ -1,4 +1,4 @@
-[
+var DATABASE = [
   {
     "name": "Tesla Model S",
     "make": "Tesla",
@@ -128,6 +128,7 @@
     "year": 2012,
     "mileage": 30000,
     "price": 80400,
+    "thumbnail": "database/test-9-a.jpg",
     "images": [
       "database/test-9-a.jpg",
       "database/test-9-b.jpg",
@@ -138,4 +139,4 @@
       "database/test-9-g.jpg"
     ]
   }
-]
+];

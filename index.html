@@ -1,0 +1,234 @@
+<html>
+  <head>
+    <style>
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+
+      #sidebar {
+        background: #222;
+        width: 300px;
+        height: 100%;
+        float: left;
+      }
+
+      #sidebar .sidebar-wrapper {
+        padding: 10px;
+        position: fixed;
+      }
+
+      #sidebar label {
+        display:block;
+      }
+
+      #sidebar input.price,
+      #sidebar input.year {
+        display: inline-block;
+      }
+
+      #viewport {
+        overflow: hidden;
+      }
+
+      #viewport #metrogrid {
+        position: relative;
+        top: 20px;
+        left: 0;
+        right: 0;
+        width: 900px;
+        margin: auto;
+      }
+
+      #viewport #metrogrid .thumbnail {
+        z-index: 0;
+        display: inline-block;
+        position: relative;
+        width: 300px;
+        height: 300px;
+        overflow: hidden;
+        text-align: center;
+        background: -moz-linear-gradient(top,  rgba(0,0,0,0.5) 0%, rgba(0,0,0,0) 40%, rgba(0,0,0,0) 60%, rgba(0,0,0,0.5) 100%); /* FF3.6+ */
+        background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(0,0,0,0.5)), color-stop(40%,rgba(0,0,0,0)), color-stop(60%,rgba(0,0,0,0)), color-stop(100%,rgba(0,0,0,0.5))); /* Chrome,Safari4+ */
+        background: -webkit-linear-gradient(top,  rgba(0,0,0,0.5) 0%,rgba(0,0,0,0) 40%,rgba(0,0,0,0) 60%,rgba(0,0,0,0.5) 100%); /* Chrome10+,Safari5.1+ */
+        background: -ms-linear-gradient(top,  rgba(0,0,0,0.5) 0%,rgba(0,0,0,0) 40%,rgba(0,0,0,0) 60%,rgba(0,0,0,0.5) 100%); /* IE10+ */
+        animation-duration: 0.5s;
+        -webkit-animation-duration: 0.5s;
+      }
+      #viewport #metrogrid .thumbnail:hover {
+        z-index: 3;
+        overflow: visible !important;
+      }
+
+      #viewport #metrogrid .thumbnail img {
+        z-index: -1;
+        position: absolute;
+        left: 50%;
+        -webkit-transform: translateX(-50%);
+        max-height: 350px;
+      }
+
+      #viewport #metrogrid .thumbnail img:hover {
+        z-index: 2 !important;
+        top: -10px !important;
+        box-shadow: 10px 10px 5px #000 !important;
+      }
+    </style>
+    <link rel="stylesheet" href="animate.min.css">
+    <link rel="stylesheet" href="font-awesome.min.css">
+    <script src="jquery-2.1.3.min.js"></script>
+    <script src="database.js"></script>
+  </head>
+  <body>
+    <div id="sidebar">
+      <div class="sidebar-wrapper">
+        <select name="make" onchange="queryChange(this)">
+          <option value="All" selected>All</option>
+          <option value="Audi">Audi</option>
+          <option value="Benz">Benz</option>
+          <option value="Bmw">BMW</option>
+          <option value="Chevrolet">Chevrolet</option>
+          <option value="Chrysler">Chrysler</option>
+          <option value="Nissan">Nissan</option>
+          <option value="Porsche">Porsche</option>
+          <option value="Tesla">Tesla</option>
+        </select>
+        <label>Price</label>
+        <input class="price" type="number" name="low-price"
+               placeholder="$" onchange="queryChange(this)"/> to
+        <input class="price" type="number" name="high-price"
+               placeholder="$" onchange="queryChange(this)"/>
+        <br/>
+        <label>Mileage</label>
+        <input class="mileage" type="number" name="low-mileage"
+               placeholder="km" onchange="queryChange(this)"/> to
+        <input class="mileage" type="number" name="high-mileage"
+               placeholder="km" onchange="queryChange(this)"/>
+        <br/>
+        <label>Year</label>
+        <input class="year" type="number" name="low-year"
+               onchange="queryChange(this)"/> to
+        <input class="year" type="number" name="high-year"
+               onchange="queryChange(this)"/>
+      </div>
+    </div>
+    <div id="viewport">
+      <div id="topbar">
+        <select name="sort" onchange="sortChange(this)">
+          <option value="lth-price" selected>Price: Low to High</option>
+          <option value="htl-price">Price: Highest to Lowest</option>
+          <option value="popularity">Popularity</option>
+        </select>
+      </div>
+      <hr/>
+      <div id="metrogrid">
+      </div>
+    </div>
+  </body>
+  <script>
+    $metrogrid = $('#metrogrid');
+    $query = {
+      make: "All",
+      priceLow: "",
+      priceHigh: "",
+      mileageLow: "",
+      mileageHigh: "",
+      yearLow: "",
+      yearHigh: ""
+    };
+    $filteredArray = DATABASE;
+    $filteredQueue = [];
+    var queryTimeout = null;
+    var loadingInterval = window.setInterval(function() {
+      if ($filteredQueue.length > 0) {
+        $metrogrid.append($filteredQueue.shift());
+      }
+    }, 250);
+
+    /* On change call handles */
+    function queryChange( query ) {
+      window.clearTimeout(queryTimeout);
+
+      $inputField = $(query);
+      var fieldName = $inputField.attr('name');
+      if (fieldName == 'make') {
+        $query.make = $inputField.val();
+      } else if (fieldName == 'low-price') {
+        $query.priceLow = $inputField.val();
+      } else if (fieldName == 'high-price') {
+        $query.priceHigh = $inputField.val();
+      } else if (fieldName == 'low-mileage') {
+        $query.mileageLow = $inputField.val();
+      } else if (fieldName == 'high-mileage') {
+        $query.mileageHigh = $inputField.val();
+      } else if (fieldName == 'low-year') {
+        $query.yearLow = $inputField.val();
+      } else if (fieldName == 'high-year') {
+        $query.yearHigh = $inputField.val();
+      } else {
+        console.log("?");
+      }
+
+      // TODO: implement delay here to call queryDatabase
+      queryTimeout = window.setTimeout(function() {
+        queryThumbnails($query);
+        console.log("HI");
+      }, 1000);
+    }
+
+    function sortChange( sort ) {
+      var option = $(sort).val();
+      sortThumbnails(option);
+    }
+
+
+    /* Actual changes */
+    // TODO: Each query should have a delay
+    // TODO: metrogrid emptying should be accompanied by animation
+    function queryThumbnails( query ) {
+      $filteredArray = DATABASE.filter(function(elem) {
+        return (query.make == "All" || query.make == elem.make)
+            && (query.priceLow == "" || query.priceLow <= elem.price)
+            && (query.priceHigh == "" || query.priceHigh >= elem.price)
+            && (query.mileageLow == "" || query.mileageLow <= elem.mileage)
+            && (query.mileageHigh == "" || query.mileageHigh >= elem.mileage)
+            && (query.yearLow == "" || query.yearLow <= elem.year)
+            && (query.yearHigh == "" || query.yearHigh >= elem.year)
+      });
+      loadThumbnails($filteredArray);
+    }
+
+    function sortThumbnails( option ) {
+      if (option == 'lth-price') {
+        $filteredArray.sort(function(a,b) {
+          return a.price - b.price;
+        });
+        loadThumbnails($filteredArray);
+      } else if (option == 'htl-price') {
+        $filteredArray.sort(function(a,b) {
+          return b.price - a.price;
+        });
+        loadThumbnails($filteredArray);
+      } else {
+        console.log('WIP');
+      }
+    }
+
+    function generateThumbnailMarkup( object ) {
+      return [
+          '<div class="thumbnail animated fadeInUp">',
+          '<img src="'+ object.thumbnail +'" />',
+          '</div>'
+      ].join("")
+    }
+
+    function loadThumbnails( arrayOfObj ) {
+      $metrogrid.empty();
+      for (var i = 0; i < arrayOfObj.length; i++) {
+        $filteredQueue.push(generateThumbnailMarkup(arrayOfObj[i]));
+      }
+    }
+
+    sortThumbnails('lth-price');
+  </script>
+</html>
