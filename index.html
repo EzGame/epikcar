@@ -410,27 +410,37 @@
         $selectField = $inputField.prev();
       }
 
-      // Data validity check
-      var error = false;
-      var selectVal = $selectField.val();
-      var inputVal = $inputField.val();
-      if (selectVal == "") {
-        $selectField.addClass('error');
-        error = true;
+      // Make check
+      if ($inputField.prop('tagName') != 'LABEL') {
+        // Data validity check
+        var error = false;
+        var selectVal = $selectField.val();
+        var inputVal = $inputField.val();
+
+        if (selectVal == "") {
+          $selectField.addClass('error');
+          error = true;
+        } else {
+          $selectField.removeClass('error');
+        }
+        if (inputVal == "" || !inputVal.match(/^\d+$/)
+            && inputVal > 0) {
+          $inputField.addClass('error');
+          error = true;
+        } else {
+          $inputField.removeClass('error');
+        }
+        if (error) return;
+
+        // Clear our values
+        $inputField.val('');
+        $selectField.val('');
       } else {
-        $selectField.removeClass('error');
+        $inputField = $(query)
+        var inputVal = $inputField.val();
       }
-      if (inputVal == "" || !inputVal.match(/^\d+$/) && selectVal > 0) {
-        $inputField.addClass('error');
-        error = true;
-      } else {
-        $inputField.removeClass('error');
-      }
-      if (error) return;
 
       // Clear time out if there was previous query timer and query inputs
-      $inputField.val('');
-      $selectField.val('');
       window.clearTimeout($queryTimeout);
       $spinner.show();
 
