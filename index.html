@@ -4,129 +4,335 @@
       html, body {
         margin: 0;
         padding: 0;
+        font-family: 'Montserrat', sans-serif;
+      }
+
+      .animated {
+        animation-duration: 0.5s;
+        -webkit-animation-duration: 0.5s;
       }
 
       #sidebar {
         background: #222;
-        width: 300px;
+        width: 275px;
         height: 100%;
         float: left;
       }
 
-      #sidebar .sidebar-wrapper {
-        padding: 10px;
-        position: fixed;
+      #sidebar .input-wrapper,
+      #sidebar #query-wrapper {
+        padding: 20px;
+        color: white;
       }
 
       #sidebar label {
         display:block;
       }
 
-      #sidebar input.price,
-      #sidebar input.year {
+      #sidebar input {
+        width: 120px;
+        height: 28px;
+        line-height: 28px;
+        border: 1px solid #000;
+        font-size: 14px;
+        padding-left: 7px;
+        margin-left: 7px;
+        vertical-align: top;
+      }
+
+      #sidebar input::-webkit-outer-spin-button,
+      #sidebar input::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+      }
+
+      #sidebar select {
+        height: 28px;
+        line-height: 28px;
+        border: 1px solid #000;
+        font-size: 14px;
+        color: #fff;
+        background: #444;
+        padding: 5px;
+        vertical-align: top;
+      }
+
+      #sidebar .error {
+        border: 2px solid red;
+      }
+
+      #sidebar i {
+        margin-left: 7px;
+        height: 28px;
+        line-height: 28px;
+        font-size: 20px;
+        cursor: pointer;
+      }
+      #sidebar i:hover {
+        color: red;
+      }
+
+      #sidebar .filter-wrapper {
+        background: #555;
+        border-radius: 5px;
+        padding: 2px 5px;
+        margin-top: 5px;
+        height: 25px;
+        line-height: 25px;
+      }
+
+      #sidebar .filter-wrapper .filter-name,
+      #sidebar .filter-wrapper .filter-compare,
+      #sidebar .filter-wrapper .filter-amount,
+      #sidebar .filter-wrapper i {
         display: inline-block;
+        vertical-align: top;
+        padding-left: 3px;
+        font-size: 14px;
+        line-height: 25px;
+      }
+
+      #sidebar .filter-wrapper i {
+        font-size: 20px;
+        float: right;
+        padding-right: 3px;
       }
 
       #viewport {
+        position: relative;
         overflow: hidden;
+        height: 100%;
+      }
+
+      #viewport #topbar {
+        padding: 10px;
+        height: 28px;
+        width: 100%;
+      }
+
+      #viewport select {
+        height: 28px;
+        line-height: 28px;
+        border: 1px solid #ccc;
+        font-size: 14px;
+        color: #444;
+        background: #fff;
+        margin: 0px 10px;
+        vertical-align: top;
+        float: right;
+      }
+
+      #viewport #spinner {
+        position: absolute;
+        z-index: 10;
+        width: 100px;
+        height: 100px;
+        top: 0;
+        left: 0;
+        bottom: 200px;
+        right: 0;
+        margin: auto;
+      }
+      
+      #viewport .metrowrapper {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        background: #f5f5f5;
+        overflow-y: scroll;
       }
 
       #viewport #metrogrid {
         position: relative;
-        top: 20px;
         left: 0;
         right: 0;
         width: 900px;
         margin: auto;
+        height: auto;
       }
 
       #viewport #metrogrid .thumbnail {
         z-index: 0;
         display: inline-block;
         position: relative;
-        width: 300px;
-        height: 300px;
+        width: 400px;
+        height: 340px;
+        margin: 10px;
         overflow: hidden;
         text-align: center;
-        background: -moz-linear-gradient(top,  rgba(0,0,0,0.5) 0%, rgba(0,0,0,0) 40%, rgba(0,0,0,0) 60%, rgba(0,0,0,0.5) 100%); /* FF3.6+ */
-        background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(0,0,0,0.5)), color-stop(40%,rgba(0,0,0,0)), color-stop(60%,rgba(0,0,0,0)), color-stop(100%,rgba(0,0,0,0.5))); /* Chrome,Safari4+ */
-        background: -webkit-linear-gradient(top,  rgba(0,0,0,0.5) 0%,rgba(0,0,0,0) 40%,rgba(0,0,0,0) 60%,rgba(0,0,0,0.5) 100%); /* Chrome10+,Safari5.1+ */
-        background: -ms-linear-gradient(top,  rgba(0,0,0,0.5) 0%,rgba(0,0,0,0) 40%,rgba(0,0,0,0) 60%,rgba(0,0,0,0.5) 100%); /* IE10+ */
-        animation-duration: 0.5s;
-        -webkit-animation-duration: 0.5s;
-      }
-      #viewport #metrogrid .thumbnail:hover {
-        z-index: 3;
-        overflow: visible !important;
+
       }
 
       #viewport #metrogrid .thumbnail img {
         z-index: -1;
         position: absolute;
+        top: 0px;
         left: 50%;
         -webkit-transform: translateX(-50%);
-        max-height: 350px;
+        max-height: 300px;
+        cursor: pointer;
       }
 
-      #viewport #metrogrid .thumbnail img:hover {
-        z-index: 2 !important;
-        top: -10px !important;
-        box-shadow: 10px 10px 5px #000 !important;
+      #viewport #metrogrid .thumbnail .price {
+        background: #333;
+        color: white;
+        left: 0px;
+        height: 30px;
+        line-height: 30px;
+        font-size: 20px;
+        width: 100px;
       }
+
+      #viewport #metrogrid .thumbnail .info-bar {
+        position: absolute;
+        height: 40px;
+        width: 400px;
+        top: 300px;
+        padding: 5px 10px;
+        box-sizing: border-box;
+        font-family: 'Source Sans Pro', sans-serif;
+      }
+
+      #viewport #metrogrid .thumbnail .info-bar .info-name {
+        display: block;
+        font-weight: 400;
+        text-align: left;
+        font-size: 14px;
+        line-height: 20px;
+        height: 15px;
+        width: 350px;
+      }
+
+      #viewport #metrogrid .thumbnail .info-bar .info-description {
+        display: block;
+        font-weight: 200;
+        text-align: left;
+        font-size: 14px;
+        line-height: 20px;
+        height: 20px;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+        width: 350px;
+      }
+
+      #viewport #metrogrid .thumbnail .info-bar i {
+        position: absolute;
+        right: 0px;
+        left: 365px;
+        top: 0px;
+        bottom: 0px;
+        margin: auto;
+        height: 20px;
+        width: 20px;
+        font-size: 25px;
+        cursor: pointer;
+      }
+      #viewport #metrogrid .thumbnail .info-bar i:hover {
+        color: red;
+      }
+
+
     </style>
     <link rel="stylesheet" href="animate.min.css">
-    <link rel="stylesheet" href="font-awesome.min.css">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" type="text/css">
+    <link href='http://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400' rel='stylesheet' type='text/css'>
     <script src="jquery-2.1.3.min.js"></script>
     <script src="database.js"></script>
   </head>
   <body>
     <div id="sidebar">
-      <div class="sidebar-wrapper">
+      <div class="input-wrapper">
+        <label>Make</label>
         <select name="make" onchange="queryChange(this)">
           <option value="All" selected>All</option>
           <option value="Audi">Audi</option>
           <option value="Benz">Benz</option>
-          <option value="Bmw">BMW</option>
+          <option value="BMW">BMW</option>
           <option value="Chevrolet">Chevrolet</option>
           <option value="Chrysler">Chrysler</option>
           <option value="Nissan">Nissan</option>
           <option value="Porsche">Porsche</option>
           <option value="Tesla">Tesla</option>
         </select>
+        <br/>
+        <br/>
+
         <label>Price</label>
-        <input class="price" type="number" name="low-price"
-               placeholder="$" onchange="queryChange(this)"/> to
-        <input class="price" type="number" name="high-price"
-               placeholder="$" onchange="queryChange(this)"/>
+        <select class="price" name="price">
+          <option value=""></option>
+          <option value="gt">&gt=</option>
+          <option value="lt">&lt=</option>
+        </select>
+        <input class="price" type="number" name="price" min="0" max="999"
+               placeholder="Thousand $" onkeypress="queryChange(this, event)"/>
+        <i class="fa fa-plus" onclick="queryChange(this)"></i>
+
+        <br/>
         <br/>
         <label>Mileage</label>
-        <input class="mileage" type="number" name="low-mileage"
-               placeholder="km" onchange="queryChange(this)"/> to
-        <input class="mileage" type="number" name="high-mileage"
-               placeholder="km" onchange="queryChange(this)"/>
+        <select class="mileage" name="milage">
+          <option value=""></option>
+          <option value="gt">&gt=</option>
+          <option value="lt">&lt=</option>
+        </select>
+        <input class="mileage" type="number" name="mileage" min="0" max="9999"
+               placeholder="Thousand KM" onkeypress="queryChange(this, event)"/>
+        <i class="fa fa-plus" onclick="queryChange(this)"></i>
+
+        <br/>
         <br/>
         <label>Year</label>
-        <input class="year" type="number" name="low-year"
-               onchange="queryChange(this)"/> to
-        <input class="year" type="number" name="high-year"
-               onchange="queryChange(this)"/>
+        <select class=year name="year">
+          <option value=""></option>
+          <option value="gt">&gt=</option>
+          <option value="lt">&lt=</option>
+        </select>
+        <input class="year" type="number" name="year" min="0" max="3000"
+               placeholder="YYYY" onkeypress="queryChange(this, event)"/>
+        <i class="fa fa-plus" onclick="queryChange(this)"></i>
+
+        <br/>
+        <br/>
+        <label>Various...</label>
+        <label>other...</label>
+        <label>filters...</label>
+        <label>here...</label>
+      </div>
+      <div id="query-wrapper">
+        Your Search Parameters
       </div>
     </div>
     <div id="viewport">
       <div id="topbar">
+        LOGO
         <select name="sort" onchange="sortChange(this)">
           <option value="lth-price" selected>Price: Low to High</option>
           <option value="htl-price">Price: Highest to Lowest</option>
           <option value="popularity">Popularity</option>
         </select>
       </div>
-      <hr/>
-      <div id="metrogrid">
+      <img id="spinner" src="spinner.gif"/>
+      <div class="metrowrapper">
+        <div id="metrogrid"></div>
       </div>
     </div>
   </body>
   <script>
+    /* LOL stuff */
+    String.prototype.capitalize = function() {
+      return this.charAt(0).toUpperCase() + this.slice(1);
+    }
+
+    String.prototype.costFormat = function() {
+      return this.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    };
+
+    /* Some globals */
     $metrogrid = $('#metrogrid');
+    $filterq = $('#query-wrapper');
+    $spinner = $('#spinner');
     $query = {
       make: "All",
       priceLow: "",
@@ -138,53 +344,148 @@
     };
     $filteredArray = DATABASE;
     $filteredQueue = [];
-    var queryTimeout = null;
-    var loadingInterval = window.setInterval(function() {
+    $queryTimeout = null;
+    $loadingInterval = window.setInterval(function() {
       if ($filteredQueue.length > 0) {
         $metrogrid.append($filteredQueue.shift());
       }
-    }, 250);
+    }, 100);
 
     /* On change call handles */
-    function queryChange( query ) {
-      window.clearTimeout(queryTimeout);
+    function showSubMenu( button ) {
+    }
 
-      $inputField = $(query);
-      var fieldName = $inputField.attr('name');
-      if (fieldName == 'make') {
-        $query.make = $inputField.val();
-      } else if (fieldName == 'low-price') {
-        $query.priceLow = $inputField.val();
-      } else if (fieldName == 'high-price') {
-        $query.priceHigh = $inputField.val();
-      } else if (fieldName == 'low-mileage') {
-        $query.mileageLow = $inputField.val();
-      } else if (fieldName == 'high-mileage') {
-        $query.mileageHigh = $inputField.val();
-      } else if (fieldName == 'low-year') {
-        $query.yearLow = $inputField.val();
-      } else if (fieldName == 'high-year') {
-        $query.yearHigh = $inputField.val();
+    function removeFilter( filter ) {
+      $filterWrapper = $(filter).parent();
+      // Remove query and
+      var filterName = $filterWrapper.find('.filter-name').text();
+      var filterComp = $filterWrapper.find('.filter-compare').text();
+
+      if (filterName == 'Price') {
+        if (filterComp == 'more than') {
+          $query.priceLow = '';
+        } else {
+          $query.priceHigh = '';
+        }
+      } else if (filterName == 'Mileage') {
+        if (filterComp == 'more than') {
+          $query.mileageLow = '';
+        } else {
+          $query.mileageHigh = '';
+        }
+      } else if (filterName == 'year') {
+        if (filterComp == 'gt') {
+          $query.yearLow = '';
+        } else {
+          $query.yearHigh = '';
+        }
       } else {
-        console.log("?");
+        alert("wtf?");
       }
 
-      // TODO: implement delay here to call queryDatabase
-      queryTimeout = window.setTimeout(function() {
+      // 2 second delay to conserve server calls
+      $queryTimeout = window.setTimeout(function() {
         queryThumbnails($query);
-        console.log("HI");
-      }, 1000);
+      }, 2000);
+
+      $filterWrapper.addClass('fadeOutRight');
+      $filterWrapper.one(
+        'webkitAnimationEnd mozAnimationEnd MSAnimationEnd animationend',
+        function() {
+          $(this).remove();
+        }
+      );
+    }
+
+    function queryChange( query, event ) {
+      // Check if event is defined and if key code is 13
+      if (typeof event !== 'undefined' ) {
+        if (event.keyCode != 13) {
+          return;
+        }
+        $inputField = $(query);
+        $selectField = $inputField.prev();
+      } else { // Else, its our icon
+        $inputField = $(query).prev();
+        $selectField = $inputField.prev();
+      }
+
+      // Data validity check
+      var error = false;
+      var selectVal = $selectField.val();
+      var inputVal = $inputField.val();
+      if (selectVal == "") {
+        $selectField.addClass('error');
+        error = true;
+      } else {
+        $selectField.removeClass('error');
+      }
+      if (inputVal == "" || !inputVal.match(/^\d+$/) && selectVal > 0) {
+        $inputField.addClass('error');
+        error = true;
+      } else {
+        $inputField.removeClass('error');
+      }
+      if (error) return;
+
+      // Clear time out if there was previous query timer and query inputs
+      $inputField.val('');
+      $selectField.val('');
+      window.clearTimeout($queryTimeout);
+      $spinner.show();
+
+      // Set values for querying
+      var fieldName = $inputField.attr('name');
+      if (fieldName == 'make') {
+        $query.make = inputVal;
+      } else if (fieldName == 'price') {
+        inputVal *= 1000;
+        if (selectVal == 'gt') {
+          $query.priceLow = inputVal;
+        } else {
+          $query.priceHigh = inputVal;
+        }
+        inputVal = '$' + inputVal.toString().costFormat();
+      } else if (fieldName == 'mileage') {
+        // inputVal *= 1000;
+        if (selectVal == 'gt') {
+          $query.mileageLow = inputVal;
+        } else {
+          $query.mileageHigh = inputVal;
+        }
+        inputVal = inputVal + 'km'
+      } else if (fieldName == 'year') {
+        if (selectVal == 'gt') {
+          $query.yearLow = inputVal;
+        } else {
+          $query.yearHigh = inputVal;
+        }
+      } else {
+        alert("wtf?");
+      }
+
+      if (fieldName != 'make') {
+        insertFilter({
+          name: fieldName.capitalize(),
+          compare: (selectVal == 'gt') ? 'more than' : 'less than',
+          amount: inputVal
+        });
+      }
+
+      // 2 second delay to conserve server calls
+      $queryTimeout = window.setTimeout(function() {
+        queryThumbnails($query);
+      }, 2000);
     }
 
     function sortChange( sort ) {
+      $spinner.show();
       var option = $(sort).val();
       sortThumbnails(option);
     }
 
 
     /* Actual changes */
-    // TODO: Each query should have a delay
-    // TODO: metrogrid emptying should be accompanied by animation
     function queryThumbnails( query ) {
       $filteredArray = DATABASE.filter(function(elem) {
         return (query.make == "All" || query.make == elem.make)
@@ -217,18 +518,43 @@
     function generateThumbnailMarkup( object ) {
       return [
           '<div class="thumbnail animated fadeInUp">',
-          '<img src="'+ object.thumbnail +'" />',
+          '<img src="'+ object.thumbnail +'"/>',
+          '<div class="price">$'+object.price.toString().costFormat()+'</div>',
+          '<div class="info-bar">',
+          '<div class="info-name">'+object.name+'/'+object.year+'/'+object.mileage+'</div>',
+          '<div class="info-description">'+object.description+'</div>',
+          '<i class="fa fa-ellipsis-v" onclick="showSubMenu(this)"></i>',
+          '</div>',
+          '</div>'
+      ].join("")
+    }
+
+    function generateFilterMarkup( object ) {
+      return [
+          '<div class="filter-wrapper animated fadeInLeft">',
+          '<div class="filter-name">'+ object.name +'</div>',
+          '<div class="filter-compare">'+ object.compare +'</div>',
+          '<div class="filter-amount">'+ object.amount +'</div>',
+          '<i class="fa fa-close" onclick="removeFilter(this)"></i>',
           '</div>'
       ].join("")
     }
 
     function loadThumbnails( arrayOfObj ) {
       $metrogrid.empty();
-      for (var i = 0; i < arrayOfObj.length; i++) {
-        $filteredQueue.push(generateThumbnailMarkup(arrayOfObj[i]));
-      }
+
+      // Simulate delay from query
+      window.setTimeout(function() {
+        $spinner.hide();
+        for (var i = 0; i < arrayOfObj.length; i++) {
+          $filteredQueue.push(generateThumbnailMarkup(arrayOfObj[i]));
+        }
+      }, 1000);
     }
 
+    function insertFilter( object ) {
+      $filterq.append(generateFilterMarkup(object));
+    }
     sortThumbnails('lth-price');
   </script>
 </html>

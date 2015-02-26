@@ -2,7 +2,7 @@ var DATABASE = [
   {
     "name": "Tesla Model S",
     "make": "Tesla",
-    "description": "Tesla’s advanced electric powertrain delivers exhilarating performance. Unlike a gasoline internal combustion engine with hundreds of moving parts, Tesla electric motors have only one moving piece: the rotor. As a result, Model S acceleration is instantaneous, silent and smooth. Step on the accelerator and in as little as 3.4 seconds Model S is traveling 100 km per hour, without hesitation, and without a drop of gasoline. Model S is an evolution in automobile engineering.",
+    "description": "Tesla's advanced electric powertrain delivers exhilarating performance. Unlike a gasoline internal combustion engine with hundreds of moving parts, Tesla electric motors have only one moving piece: the rotor. As a result, Model S acceleration is instantaneous, silent and smooth. Step on the accelerator and in as little as 3.4 seconds Model S is traveling 100 km per hour, without hesitation, and without a drop of gasoline. Model S is an evolution in automobile engineering.",
     "year": 2014,
     "mileage": 9000,
     "price": 82270,
