@@ -1,0 +1,17 @@
+<html>
+<head>
+  <%= stylesheet_link_tag 'font-awesome' -%>
+  <%= javascript_include_tag 'jquery' -%>
+  <%= javascript_include_tag 'animate' -%>
+  <link href='//fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
+  <link href='//fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400' rel='stylesheet' type='text/css'>
+  <!--<script src="../../../database.js"></script>-->
+</head>
+<body>
+<%= @ad.to_json -%>
+<%= @ad.vehicle.to_json -%>
+<% @ad.images.each do |image| %>
+  <%= image_tag image.image_url -%>
+<% end %>
+</body>
+</html>

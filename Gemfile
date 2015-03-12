@@ -19,19 +19,17 @@ gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
 
-
 # Utility gems
 gem 'json', '~> 1.8.1'
 gem 'httparty', '~> 0.9.0'
 gem 'watir'
 gem 'nokogiri'
-
+gem 'hashids'
 
 group :production do
   gem 'unicorn'
   gem 'capistrano',   '~> 2.12.0'
 end
-  
 
 group :development, :test do
   gem 'byebug'

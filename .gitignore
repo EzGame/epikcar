@@ -18,3 +18,5 @@
 
 # Ignore rubymine configs
 .idea/
+.rvmrc
+.irbrc

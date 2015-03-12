@@ -68,6 +68,7 @@ GEM
     ffi (1.9.6)
     globalid (0.3.3)
       activesupport (>= 4.1.0)
+    hashids (1.0.2)
     highline (1.7.1)
     hike (1.2.3)
     httparty (0.9.0)
@@ -192,6 +193,7 @@ PLATFORMS
 DEPENDENCIES
   byebug
   capistrano (~> 2.12.0)
+  hashids
   httparty (~> 0.9.0)
   jbuilder (~> 2.0)
   jquery-rails
