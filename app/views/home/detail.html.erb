@@ -1,17 +1,56 @@
 <html>
 <head>
+  <%= stylesheet_link_tag 'detail' -%>
   <%= stylesheet_link_tag 'font-awesome' -%>
   <%= javascript_include_tag 'jquery' -%>
   <%= javascript_include_tag 'animate' -%>
-  <link href='//fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
-  <link href='//fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400' rel='stylesheet' type='text/css'>
-  <!--<script src="../../../database.js"></script>-->
+  <%= javascript_include_tag 'bootstrap' -%>
+  <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/jquery.slick/1.4.1/slick.css"/>
+  <script type="text/javascript" src="//cdn.jsdelivr.net/jquery.slick/1.4.1/slick.min.js"></script>
+
+  <link href='//fonts.googleapis.com/css?family=Montserrat'
+        rel='stylesheet' type='text/css'>
+  <link href='//fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400'
+        rel='stylesheet' type='text/css'>
 </head>
 <body>
-<%= @ad.to_json -%>
-<%= @ad.vehicle.to_json -%>
-<% @ad.images.each do |image| %>
-  <%= image_tag image.image_url -%>
-<% end %>
+<div id="header">
+</div>
+<div class="page-wrap">
+  <div id="main">
+    <div id="title"><%= @ad.name -%></div>
+    <div class="carousel-container">
+      <div class="slick">
+        <% @ad.images.each do |image| %>
+          <%= image_tag image.image_url -%>
+        <% end %>
+      </div>
+    </div>
+    <div class="content-container">
+
+    </div>
+  </div>
+
+  <%= @ad.to_json -%>
+  <%= @ad.vehicle.to_json -%>
+
+</div>
+<div id="footer">
+</div>
+
+<script>
+  $(document).ready(function() {
+    $('.slick').slick({
+      infinite: true,
+      centerMode: true,
+      centerPadding: '60px',
+      slidesToShow: 1,
+      lazyLoad: 'ondemand',
+      autoplay: true,
+      autoplaySpeed: 10000,
+      variableWidth: true
+    });
+  });
+</script>
 </body>
 </html>
