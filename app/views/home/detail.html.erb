@@ -5,20 +5,27 @@
   <%= javascript_include_tag 'jquery' -%>
   <%= javascript_include_tag 'animate' -%>
   <%= javascript_include_tag 'bootstrap' -%>
-  <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/jquery.slick/1.4.1/slick.css"/>
-  <script type="text/javascript" src="//cdn.jsdelivr.net/jquery.slick/1.4.1/slick.min.js"></script>
+  <script src="//cdn.jsdelivr.net/jquery.slick/1.4.1/slick.min.js"
+          type="text/javascript"></script>
 
+  <link href="//cdn.jsdelivr.net/jquery.slick/1.4.1/slick.css"
+        rel="stylesheet" type="text/css"/>
   <link href='//fonts.googleapis.com/css?family=Montserrat'
         rel='stylesheet' type='text/css'>
-  <link href='//fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400'
+  <link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700'
         rel='stylesheet' type='text/css'>
 </head>
+
 <body>
-<div id="header">
-</div>
-<div class="page-wrap">
+  <div id="header">
+    <div class="header-container">
+      <div class="header">
+
+      </div>
+    </div>
+  </div>
   <div id="main">
-    <div id="title"><%= @ad.name -%></div>
+    <div id="title" class="title"><%= @ad.name -%></div>
     <div class="carousel-container">
       <div class="slick">
         <% @ad.images.each do |image| %>
@@ -27,30 +34,90 @@
       </div>
     </div>
     <div class="content-container">
+      <div class="tab-container">
+        <div class="tab-bar">
+          <div class="tab-button title active" data-title="report">Report</div>
+          <div class="tab-button title" data-title="detail">Detail</div>
+          <div class="tab-button title" data-title="misc">Misc(WIP)</div>
+        </div>
+        <div class="tab-content">
+          <div class="tab active" data-title="report">
+            Work in progress
+          </div>
+          <div class="tab" data-title="detail">
+            <div class="detail-header">Description</div>
+            <div class="detail-description">
+              <%= @ad.description -%>
+            </div>
+            <div class="detail-header">Specs</div>
+            <div class="detail-specs">
+              Work in progress
+            </div>
+            <div class="detail-header">Options</div>
+            <div class="detail-options">
+              Work in progress
+            </div>
+          </div>
+          <div class="tab" data-title="misc">
+            Work in progress
+          </div>
+        </div>
+      </div>
 
+      <div class="info-container">
+        <div class="info-header title">
+          THE SELLER
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="footer">
+    <div class="footer-container">
+      <div class="left">
+        <a href="">Discover more</a>
+        <a href="">About us</a>
+        <a href="">Contact</a>
+        <i class="fa-facebook-f"></i>
+        <i class="fa-twitter"></i>
+        <i class="fa-google-plus"></i>
+      </div>
+      <div class="right">
+        Bacon ipsum dolor amet chuck drumstick alcatra,
+        shankle cupim meatloaf short ribs biltong salami
+        leberkas pork. Pork prosciutto tri-tip shoulder
+        venison t-bone hamburger kielbasa drumstick.
+        T-bone short ribs spare ribs strip steak beef
+        ribs kevin. Shank biltong pork turducken ground
+        round filet mignon pig jerky kevin ham hock.
+      </div>
     </div>
   </div>
 
-  <%= @ad.to_json -%>
-  <%= @ad.vehicle.to_json -%>
+  <script>
+    $(document).ready(function() {
+      $('.slick').slick({
+        infinite: true,
+        centerMode: true,
+        centerPadding: '60px',
+        slidesToShow: 1,
+        autoplay: true,
+        autoplaySpeed: 10000,
+        variableWidth: true
+      });
 
-</div>
-<div id="footer">
-</div>
+      $('.tab-button').click(function() {
+        var $button = $(this);
+        $button.addClass('active')
+            .siblings()
+            .removeClass('active');
 
-<script>
-  $(document).ready(function() {
-    $('.slick').slick({
-      infinite: true,
-      centerMode: true,
-      centerPadding: '60px',
-      slidesToShow: 1,
-      lazyLoad: 'ondemand',
-      autoplay: true,
-      autoplaySpeed: 10000,
-      variableWidth: true
+        var $content = $('.tab-content')
+            .find('.tab[data-title=' + $button.data('title') + ']');
+        $content.addClass('active')
+            .siblings()
+            .removeClass('active');
+      });
     });
-  });
-</script>
+  </script>
 </body>
 </html>
