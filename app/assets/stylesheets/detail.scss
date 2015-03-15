@@ -1,5 +1,17 @@
-$main-color: #3498db;
-$content-width: 800px;
+$primary-color-dawn: #86C5EE;
+$primary-color-lite: #59ADE4;
+$primary-color: #359ADC;
+$primary-color-dark: #1086D2;
+$primary-color-dusk: #0666A5;
+
+$secondary-color: #2CE28A;
+$secondary-color-lite: #81F0BB;
+$secondary-color-dark: #00B35D;
+$tertiary-color: #454DE1;
+
+$desktop-width: 800px;
+$fake-white: #f7f7f7;
+$fake-black: #333;
 
 html, body {
   padding: 0;
@@ -21,18 +33,18 @@ html, body {
   z-index: 100000000;
 
   .header-container {
-    width: $content-width;
+    width: $desktop-width;
     margin: auto;
     height: 70px;
   }
 }
 
 #footer {
-  background-color: #333;
+  background-color: $fake-black;
   height: 140px;
 
   .footer-container {
-    width: $content-width;
+    width: $desktop-width;
     margin: auto;
     padding: 30px 0px;
 
@@ -65,7 +77,7 @@ html, body {
 }
 
 #main {
-  background-color: $main-color;
+  background-color: $primary-color-dusk;
   padding-top: 70px;
 
   #title {
@@ -103,38 +115,41 @@ html, body {
     position: relative;
     width: 100%;
     padding: 40px 0;
-    background-color: #f7f7f7;
+    background-color: $fake-white;
     box-shadow: 3px 0 5px rgba(0,0,0,0.5);
-
 
     .tab-container {
       position: relative;
       margin: auto;
-      width: $content-width;
+      width: $desktop-width;
 
       .tab-bar {
         position: relative;
         top: 0;
         width: 500px;
-        border-bottom: 2px solid #000000;
+        border-bottom: 2px solid $fake-black;
+        font-size: 0px;
 
         .tab-button {
           display: inline-block;
           padding: 5px 20px;
           text-align: center;
           cursor: pointer;
-          border-radius: 3px 3px 0px 0px;
-          background-color: #23527c;
+          background-color: $primary-color;
+          font-size: 16px;
+          box-sizing: border-box;
 
           &.active {
-            background-color: #f7f7f7;
+            background-color: $fake-white;
+//            border-bottom: 2px solid $fake-white;
+//            box-shadow: 2px 0px 2px $primary-color-dark;
           }
         }
       }
 
       .tab-content {
         .tab {
-          background-color: #f7f7f7;
+          background-color: $fake-white;
           height: 600px;
           width: 500px;
           padding: 20px;
@@ -152,8 +167,8 @@ html, body {
         top: 30px;
         width: 250px;
         height: 400px;
-        background-color: #ccc;
-        box-shadow: 5px 5px 5px #000;
+        background-color: $primary-color-lite;
+        box-shadow: 5px 5px 5px $fake-black;
 
         .info-header {
           position: absolute;
@@ -163,7 +178,9 @@ html, body {
           height: 30px;
           text-align: center;
           line-height: 30px;
-          background-color: grey;
+          color: $fake-black;
+          background-color: $primary-color-dawn;
+          box-shadow: 2px 2px 2px $fake-black;
         }
       }
     }
