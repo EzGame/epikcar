@@ -115,12 +115,12 @@ html, body {
       .tab-bar {
         position: relative;
         top: 0;
-        width: 550px;
-        border-bottom: 2px solid white;
+        width: 500px;
+        border-bottom: 2px solid #000000;
 
         .tab-button {
           display: inline-block;
-          padding: 0 20px;
+          padding: 5px 20px;
           text-align: center;
           cursor: pointer;
           border-radius: 3px 3px 0px 0px;
@@ -136,7 +136,8 @@ html, body {
         .tab {
           background-color: #f7f7f7;
           height: 600px;
-          width: 550px;
+          width: 500px;
+          padding: 20px;
           display: none;
 
           &.active {
@@ -144,26 +145,26 @@ html, body {
           }
         }
       }
-    }
 
-    .info-container {
-      position: absolute;
-      right: 125px;
-      top: 60px;
-      width: 250px;
-      height: 400px;
-      background-color: #ccc;
-      box-shadow: 5px 5px 5px #000;
-
-      .info-header {
+      .info-container {
         position: absolute;
-        top: -15px;
-        right: 10px;
-        width: 150px;
-        height: 30px;
-        text-align: center;
-        line-height: 30px;
-        background-color: grey;
+        right: 0px;
+        top: 30px;
+        width: 250px;
+        height: 400px;
+        background-color: #ccc;
+        box-shadow: 5px 5px 5px #000;
+
+        .info-header {
+          position: absolute;
+          top: -15px;
+          right: 10px;
+          width: 150px;
+          height: 30px;
+          text-align: center;
+          line-height: 30px;
+          background-color: grey;
+        }
       }
     }
   }
