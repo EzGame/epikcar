@@ -29,13 +29,19 @@ html, body {
   position: absolute;
   height: 70px;
   width: 100%;
-  box-shadow: 3px 0 5px rgba(0,0,0,0.5);
+  box-shadow: 5px 0 5px rgba(0,0,0,0.7);
   z-index: 100000000;
 
   .header-container {
     width: $desktop-width;
     margin: auto;
     height: 70px;
+
+    .header {
+      line-height: 70px;
+      font-weight: bold;
+      font-size: 32px;
+    }
   }
 }
 
@@ -62,6 +68,7 @@ html, body {
       }
 
       i {
+        padding: 3px 6px 3px 0px;
         display: inline-block;
       }
     }
@@ -116,7 +123,7 @@ html, body {
     width: 100%;
     padding: 40px 0;
     background-color: $fake-white;
-    box-shadow: 3px 0 5px rgba(0,0,0,0.5);
+    box-shadow: 5px 0 5px rgba(0,0,0,0.7);
 
     .tab-container {
       position: relative;
@@ -126,7 +133,8 @@ html, body {
       .tab-bar {
         position: relative;
         top: 0;
-        width: 500px;
+        padding-left: 20px;
+        width: 480px;
         border-bottom: 2px solid $fake-black;
         font-size: 0px;
 
@@ -135,14 +143,14 @@ html, body {
           padding: 5px 20px;
           text-align: center;
           cursor: pointer;
+          color: $fake-white;
           background-color: $primary-color;
           font-size: 16px;
           box-sizing: border-box;
 
           &.active {
+            color: $primary-color;
             background-color: $fake-white;
-//            border-bottom: 2px solid $fake-white;
-//            box-shadow: 2px 0px 2px $primary-color-dark;
           }
         }
       }
@@ -150,13 +158,87 @@ html, body {
       .tab-content {
         .tab {
           background-color: $fake-white;
-          height: 600px;
+          min-height: 400px;
           width: 500px;
           padding: 20px;
           display: none;
 
           &.active {
             display: block;
+          }
+
+          .detail-header {
+            font-weight: bold;
+            padding: 5px 0px;
+          }
+
+          .detail-description {
+            font-weight: 300;
+            padding: 10px 50px 10px 20px;
+            font-size: 12px;
+          }
+
+          .detail-specs {
+            height: 40px;
+            padding: 5px 0px;
+
+            ul {
+              margin: 0;
+              padding: 0 0 0 20px;
+
+              li {
+                float: left;
+                width: 100px;
+                font-size: 12px;
+                font-weight: 300;
+                list-style: none;
+                margin-right: 10px;
+                margin-left: 0px;
+                border-bottom: 1px solid #f7f7f7;
+                background-color: #777;
+
+                div {
+                  background-color: #e7e7e7;
+                  margin-left: 10px;
+                  padding-left: 10px;
+                  height: 30px;
+                  line-height: 30px;
+                }
+              }
+            }
+          }
+
+          .detail-options {
+            padding: 5px 0px;
+
+            table {
+              border-collapse: collapse;
+              margin: 0px 20px;
+
+              tr {
+                width: 100%;
+
+                td {
+                  position: relative;
+                  width: 105px;
+                  height: 35px;
+                  text-align: center;
+                  vertical-align: middle;
+                  background-color: #777777;
+                  border-color: #777777;
+                  font-weight: 100;
+                  font-size: 12px;
+                }
+
+                td.active {
+                  background-color: #e7e7e7;
+                  border-color: #e7e7e7;
+                  font-weight: 300;
+                  box-shadow: 2px 2px 2px #333333;
+                  z-index: 2;
+                }
+              }
+            }
           }
         }
       }
@@ -166,8 +248,8 @@ html, body {
         right: 0px;
         top: 30px;
         width: 250px;
-        height: 400px;
-        background-color: $primary-color-lite;
+        min-height: 350px;
+        background-color: #e7e7e7;
         box-shadow: 5px 5px 5px $fake-black;
 
         .info-header {
@@ -178,9 +260,95 @@ html, body {
           height: 30px;
           text-align: center;
           line-height: 30px;
-          color: $fake-black;
-          background-color: $primary-color-dawn;
+          color: $fake-white;
+          background-color: $primary-color;
           box-shadow: 2px 2px 2px $fake-black;
+          z-index: 10;
+        }
+
+        .user-photo {
+          position: relative;
+          width: 100px;
+          height: 100px;
+          padding: 10px;
+          z-index: 0;
+
+          img {
+            height: 100px;
+            width: 100px;
+          }
+        }
+
+        .user-description {
+          font-size: 12px;
+          font-weight: 300;
+          padding: 0 10px;
+        }
+
+        .user-contact {
+          padding: 10px;
+
+          .user-contact-phone,
+          .user-contact-mail {
+            height: 30px;
+            width: 230px;
+            margin: 3px 0px;
+            position: relative;
+
+            i {
+              position: absolute;
+              left: 0px;
+              top: 0px;
+              font-size: 24px;
+              line-height: 30px;
+              text-align: center;
+              width: 30px;
+              background-color: $primary-color;
+              color: $fake-white;
+            }
+
+            .cube {
+              position: absolute;
+              left: 35px;
+              top: 0px;
+              width: 180px;
+              height: 30px;
+              -webkit-transition: -webkit-transform .5s;
+              transition: transform .5s;
+              -webkit-transform-style: preserve-3d;
+              transform-style: preserve-3d;
+
+              &.active {
+                -webkit-transform: rotateX(90deg);
+                transform: rotateX(90deg);
+              }
+
+              .show-button, .back-button {
+                line-height: 30px;
+                font-size: 16px;
+                font-weight: 300;
+                background: #777;
+                padding-left: 20px;
+                color: $fake-white;
+                cursor: pointer;
+              }
+
+              .front {
+                -webkit-transform: translateZ(15px);
+                transform: translateZ(15px);
+              }
+
+              .hidden {
+                -webkit-transform: rotateX(-90deg) translateZ(-15px);
+                transform: rotateX(-90deg) translateZ(-15px);
+                background-color: $primary-color;
+              }
+            }
+          }
+
+          .user-contact-mail i {
+            font-size: 16px;
+          }
         }
       }
     }
