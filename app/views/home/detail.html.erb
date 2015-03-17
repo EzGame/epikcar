@@ -26,8 +26,13 @@
     </div>
   </div>
   <div id="main">
-    <div id="title" class="title"><%= @ad.name.upcase -%></div>
     <div class="carousel-container">
+      <div class="overlay-container">
+        <div class="overlay-center">
+          <div id='title' class="title"><%= @ad.name.upcase -%></div>
+          <div id='price' class="title">$<%= @ad.price -%></div>
+        </div>
+      </div>
       <!-- TODO: Find a way to load slick gracefully -->
       <div class="slick">
         <% @ad.images.each do |image| %>
@@ -35,116 +40,118 @@
         <% end %>
       </div>
     </div>
-    <div class="content-container">
+    <div class="section report">
       <!-- TODO: this can be refactored into a partial -->
-      <div class="tab-container">
-        <div class="tab-bar">
-          <div class="tab-button title active" data-title="report">Report</div>
-          <div class="tab-button title" data-title="detail">Detail</div>
-          <div class="tab-button title" data-title="misc">Misc(WIP)</div>
+      <div class="center-container">
+        <div class="section-container">
+          Work in progress
         </div>
-        <div class="tab-content">
-          <div class="tab active" data-title="report">
-            Work in progress
+      </div>
+    </div>
+
+    <div class="section detail">
+      <div class="center-container">
+        <div class="section-container">
+          <div class="detail-header">Description</div>
+          <div class="detail-description">
+            <%= @ad.description -%>
           </div>
-          <div class="tab" data-title="detail">
-            <div class="detail-header">Description</div>
-            <div class="detail-description">
-              <%= @ad.description -%>
-            </div>
-            <div class="detail-header">Specs</div>
-            <div class="detail-specs">
-              <!-- TODO: Rails model many-to-one -->
-              <ul>
-                <li><div>9000 mpg</div>
-                <li><div>two</div></li>
-                <li><div>three</div></li>
-                <li><div>four</div></li>
-                <li><div>five</div></li>
-                <li><div>six</div></li>
-                <li><div>seven</div></li>
-                <li><div>eight</div></li>
-                <li><div>nine</div></li>
-                <li><div>ten</div></li>
-                <li><div>eleven</div></li>
-                <li><div>twelve</div></li>
-                <li><div>thirteen</div></li>
-                <li><div>fourteen</div></li>
-                <li><div>fifteen</div></li>
-                <li><div>sixteen</div></li>
-              </ul>
-              <br/>
-            </div>
-            <div class="detail-header">Options</div>
-            <div class="detail-options">
-              <!-- TODO: Rails model many-to-many -->
-              <table>
-                <tr>
-                  <td class="active">Leather seats</td>
-                  <td>Two</td>
-                  <td class="active">Three</td>
-                  <td>Four</td>
-                </tr>
-                <tr>
-                  <td>Five</td>
-                  <td class="active">Six</td>
-                  <td class="active">Seven</td>
-                  <td class="active">Eight</td>
-                </tr>
-                <tr>
-                  <td class="active">Nine</td>
-                  <td>Ten</td>
-                  <td>Eleven</td>
-                  <td>Twelve</td>
-                </tr>
-                <tr>
-                  <td class="active">Thirteen</td>
-                  <td class="active">Fourteen</td>
-                  <td>Fifteen</td>
-                  <td>Sixteen</td>
-                </tr>
-              </table>
-            </div>
+          <div class="detail-header">Specs</div>
+          <div class="detail-specs">
+            <!-- TODO: Rails model many-to-one -->
+            <ul>
+              <li><div>9000 mpg</div>
+              <li><div>two</div></li>
+              <li><div>three</div></li>
+              <li><div>four</div></li>
+              <li><div>five</div></li>
+              <li><div>six</div></li>
+              <li><div>seven</div></li>
+              <li><div>eight</div></li>
+              <li><div>nine</div></li>
+              <li><div>ten</div></li>
+              <li><div>eleven</div></li>
+              <li><div>twelve</div></li>
+              <li><div>thirteen</div></li>
+              <li><div>fourteen</div></li>
+              <li><div>fifteen</div></li>
+              <li><div>sixteen</div></li>
+            </ul>
+            <br/>
           </div>
-          <div class="tab" data-title="misc">
-            Work in progress
+          <div class="detail-header">Options</div>
+          <div class="detail-options">
+            <!-- TODO: Rails model many-to-many -->
+            <table>
+              <tr>
+                <td class="active">Leather seats</td>
+                <td>Two</td>
+                <td class="active">Three</td>
+                <td>Four</td>
+              </tr>
+              <tr>
+                <td>Five</td>
+                <td class="active">Six</td>
+                <td class="active">Seven</td>
+                <td class="active">Eight</td>
+              </tr>
+              <tr>
+                <td class="active">Nine</td>
+                <td>Ten</td>
+                <td>Eleven</td>
+                <td>Twelve</td>
+              </tr>
+              <tr>
+                <td class="active">Thirteen</td>
+                <td class="active">Fourteen</td>
+                <td>Fifteen</td>
+                <td>Sixteen</td>
+              </tr>
+            </table>
           </div>
         </div>
+      </div>
 
-        <div class="info-container">
-          <div class="info-header title">
-            THE SELLER
+      <div class="section misc">
+        <div class="center-container">
+          <div class="section-container">
+            Work in progress
           </div>
-          <!-- TODO: This should all be user model -->
-          <div class="user-photo">
-            <img src="//www.adtechnology.co.uk/images/UGM-default-user.png">
-          </div>
-          <div class="user-description">
-            Bacon ipsum dolor amet chuck drumstick alcatra,
-            shankle cupim meatloaf short ribs biltong salami
-            leberkas pork. Pork prosciutto tri-tip shoulder
-            venison t-bone hamburger kielbasa drumstick.
-            T-bone short ribs spare ribs strip steak beef
-            ribs kevin. Shank biltong pork turducken ground
-            round filet mignon pig jerky kevin ham hock.
-          </div>
+        </div>
+      </div>
 
-          <div class="user-contact">
-            <div class="user-contact-phone">
-              <i class="fa fa-mobile"></i>
-              <div class="cube">
-                <div class="show-button front">Phone</div>
-                <div class="back-button hidden">
-                  <%= @ad.contact_phone -%>
-                </div>
+      <!-- TODO: This should all be models -->
+      <div class="info-container">
+        <div class="info-header title">
+          THE SELLER
+        </div>
+        <div class="user-photo">
+          <img src="//www.adtechnology.co.uk/images/UGM-default-user.png">
+        </div>
+        <div class="user-description">
+          Bacon ipsum dolor amet chuck drumstick alcatra,
+          shankle cupim meatloaf short ribs biltong salami
+          leberkas pork. Pork prosciutto tri-tip shoulder
+          venison t-bone hamburger kielbasa drumstick.
+          T-bone short ribs spare ribs strip steak beef
+          ribs kevin. Shank biltong pork turducken ground
+          round filet mignon pig jerky kevin ham hock.
+        </div>
+        <div class="user-contact">
+          <div class="user-contact-phone">
+            <i class="fa fa-mobile"></i>
+            <div class="cube">
+              <div class="show-button front">Phone</div>
+              <div class="back-button hidden">
+                <%= @ad.contact_phone -%>
               </div>
             </div>
-            <div class="user-contact-mail">
-              <i class="fa fa-envelope-o"></i>
-              <div class="cube">
-                <div class="show-button">Send email</div>
-                <div class="back-button hidden">Sent!</div>
-              </div>
+          </div>
+          <div class="user-contact-mail">
+            <i class="fa fa-envelope-o"></i>
+            <div class="cube">
+              <div class="show-button">Send email</div>
+              <div class="back-button hidden">Sent!</div>
             </div>
           </div>
         </div>
@@ -178,24 +185,11 @@
     $(document).ready(function() {
       $('.slick').slick({
         centerMode: true,
-        centerPadding: '60px',
-        slidesToShow: 1,
+        slidesToShow: 3,
+        slidesToScroll: 3,
         autoplay: true,
         autoplaySpeed: 10000,
         variableWidth: true
-      });
-
-      $('.tab-button').click(function() {
-        var $button = $(this);
-        $button.addClass('active')
-            .siblings()
-            .removeClass('active');
-
-        var $content = $('.tab-content')
-            .find('.tab[data-title=' + $button.data('title') + ']');
-        $content.addClass('active')
-            .siblings()
-            .removeClass('active');
       });
 
       $('.show-button').click(function() {
