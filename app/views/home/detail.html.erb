@@ -43,20 +43,136 @@
     <div class="section report">
       <!-- TODO: this can be refactored into a partial -->
       <div class="center-container">
-        <div class="section-container">
-          Work in progress
+        <div class="section-header">
+          SPECIALIST INSPECTION
+        </div>
+
+        <!--TODO: This should be a model + partial-->
+        <div class="report-container">
+          <div class="stream">
+            <div class="stream-header">
+              Powertrain
+            </div>
+            <div class="stream-line"></div>
+            <div class="stream-list-container">
+              <div class="stream-grade grade-a">A</div>
+              <div class="stream-description">Result one</div>
+            </div>
+            <div class="stream-list-container">
+              <div class="stream-grade grade-b">B</div>
+              <div class="stream-description">Result one</div>
+            </div>
+            <div class="stream-list-container">
+              <div class="stream-grade grade-c">C</div>
+              <div class="stream-description">Result one</div>
+            </div>
+            <div class="stream-list-container">
+              <div class="stream-grade grade-d">D</div>
+              <div class="stream-description">Result one</div>
+            </div>
+            <div class="stream-list-container">
+              <div class="stream-grade grade-a">A</div>
+              <div class="stream-description">Result one</div>
+            </div>
+          </div>
+          <div class="stream">
+            <div class="stream-header">
+              Chassis/Drive
+            </div>
+            <div class="stream-line"></div>
+            <div class="stream-list-container">
+              <div class="stream-grade grade-a">A</div>
+              <div class="stream-description">Result one</div>
+            </div>
+            <div class="stream-list-container">
+              <div class="stream-grade grade-a">A</div>
+              <div class="stream-description">Result one</div>
+            </div>
+            <div class="stream-list-container">
+              <div class="stream-grade grade-a">A</div>
+              <div class="stream-description">Result one</div>
+            </div>
+            <div class="stream-list-container">
+              <div class="stream-grade grade-a">A</div>
+              <div class="stream-description">Result one</div>
+            </div>
+            <div class="stream-list-container">
+              <div class="stream-grade grade-a">A</div>
+              <div class="stream-description">Result one</div>
+            </div>
+
+          </div>
+          <div class="stream">
+            <div class="stream-header">
+              Exterior
+            </div>
+            <div class="stream-line"></div>
+            <div class="stream-list-container">
+              <div class="stream-grade grade-a">A</div>
+              <div class="stream-description">Result one</div>
+            </div>
+            <div class="stream-list-container">
+              <div class="stream-grade grade-a">A</div>
+              <div class="stream-description">Result one</div>
+            </div>
+            <div class="stream-list-container">
+              <div class="stream-grade grade-a">A</div>
+              <div class="stream-description">Result one</div>
+            </div>
+            <div class="stream-list-container">
+              <div class="stream-grade grade-a">A</div>
+              <div class="stream-description">Result one</div>
+            </div>
+            <div class="stream-list-container">
+              <div class="stream-grade grade-a">A</div>
+              <div class="stream-description">Result one</div>
+            </div>
+          </div>
+        </div>
+
+        <!--TODO: This should be a model + partial-->
+        <div class="expert-container">
+          <div class="expert-header title">MEET THE EXPERT</div>
+          <div class="expert-information">
+            <div class="expert-photo">
+              <img src="//www.adtechnology.co.uk/images/UGM-default-user.png">
+            </div>
+            <div class="expert-contact">
+              <div class="expert-name">John Doe</div>
+              <div class="expert-address">123 Test street</div>
+              <div class="expert-address-two">A1A1A1 Ontario, CA</div>
+              <div class="expert-number">1-800-999-5555</div>
+              <div class="expert-rating">
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+              </div>
+            </div>
+
+            <div class="expert-description">
+              Bacon ipsum dolor amet chuck drumstick alcatra,
+              shankle cupim meatloaf short ribs biltong salami
+              leberkas pork. Pork prosciutto tri-tip shoulder
+              venison t-bone hamburger kielbasa drumstick.
+            </div>
+          </div>
+          <div class="expert-shop-location">
+            <img src="//www.techmerry.com/wp-content/uploads/2014/08/Implement-GPS-data-for-your-Google-MAP.gif">
+          </div>
         </div>
       </div>
-    </div>
+    </div> <!--SECTION REPORT-->
 
     <div class="section detail">
       <div class="center-container">
         <div class="section-container">
-          <div class="detail-header">Description</div>
+          <div class="section-header">Description</div>
           <div class="detail-description">
             <%= @ad.description -%>
           </div>
-          <div class="detail-header">Specs</div>
+          <div class="section-header">Specs</div>
           <div class="detail-specs">
             <!-- TODO: Rails model many-to-one -->
             <ul>
@@ -79,7 +195,7 @@
             </ul>
             <br/>
           </div>
-          <div class="detail-header">Options</div>
+          <div class="section-header">Options</div>
           <div class="detail-options">
             <!-- TODO: Rails model many-to-many -->
             <table>
@@ -109,54 +225,51 @@
               </tr>
             </table>
           </div>
-        </div>
-      </div>
 
-      <div class="section misc">
-        <div class="center-container">
-          <div class="section-container">
-            Work in progress
-          </div>
-        </div>
-      </div>
-
-      <!-- TODO: This should all be models -->
-      <div class="info-container">
-        <div class="info-header title">
-          THE SELLER
-        </div>
-        <div class="user-photo">
-          <img src="//www.adtechnology.co.uk/images/UGM-default-user.png">
-        </div>
-        <div class="user-description">
-          Bacon ipsum dolor amet chuck drumstick alcatra,
-          shankle cupim meatloaf short ribs biltong salami
-          leberkas pork. Pork prosciutto tri-tip shoulder
-          venison t-bone hamburger kielbasa drumstick.
-          T-bone short ribs spare ribs strip steak beef
-          ribs kevin. Shank biltong pork turducken ground
-          round filet mignon pig jerky kevin ham hock.
-        </div>
-        <div class="user-contact">
-          <div class="user-contact-phone">
-            <i class="fa fa-mobile"></i>
-            <div class="cube">
-              <div class="show-button front">Phone</div>
-              <div class="back-button hidden">
-                <%= @ad.contact_phone -%>
+          <!-- TODO: This should all be models -->
+          <div class="info-container">
+            <div class="info-header title">
+              THE SELLER
+            </div>
+            <div class="user-photo">
+              <img src="//www.adtechnology.co.uk/images/UGM-default-user.png">
+            </div>
+            <div class="user-description">
+              Bacon ipsum dolor amet chuck drumstick alcatra,
+              shankle cupim meatloaf short ribs biltong salami
+              leberkas pork. Pork prosciutto tri-tip shoulder
+              venison t-bone hamburger kielbasa drumstick.
+            </div>
+            <div class="user-contact">
+              <div class="user-contact-phone">
+                <i class="fa fa-mobile"></i>
+                <div class="cube">
+                  <div class="show-button front">Phone</div>
+                  <div class="back-button hidden">
+                    <%= @ad.contact_phone -%>
+                  </div>
+                </div>
+              </div>
+              <div class="user-contact-mail">
+                <i class="fa fa-envelope-o"></i>
+                <div class="cube">
+                  <div class="show-button">Send email</div>
+                  <div class="back-button hidden">Sent!</div>
+                </div>
               </div>
             </div>
           </div>
-          <div class="user-contact-mail">
-            <i class="fa fa-envelope-o"></i>
-            <div class="cube">
-              <div class="show-button">Send email</div>
-              <div class="back-button hidden">Sent!</div>
-            </div>
-          </div>
         </div>
       </div>
-    </div>
+    </div> <!--SECTION DETAILS-->
+
+    <div class="section misc">
+      <div class="center-container">
+        <div class="section-container">
+          Work in progress
+        </div>
+      </div>
+    </div> <!--SECTION MISC-->
   </div>
   <div id="footer">
     <div class="footer-container">
