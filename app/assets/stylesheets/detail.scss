@@ -137,7 +137,6 @@ html, body {
       padding: 50px 10px;
       margin: auto;
       -webkit-filter: grayscale(1) blur(2px);
-//      transition: 0.5s;
 
       &.slick-center {
         height: 400px;
@@ -163,7 +162,7 @@ html, body {
       box-shadow: 5px 0 5px rgba(0, 0, 0, 0.7);
 
       .section-header {
-        color: $primary-color-dusk;
+        color: $fake-black;
         font-weight: bold;
         padding: 20px 0px 0px 0px;
       }
@@ -171,10 +170,7 @@ html, body {
       .expert-container {
         position: relative;
         color: $fake-black;
-        padding: 10px 20px;
-        margin-top: 10px;
-        border-top: 1px solid #e7e7e7;
-        border-bottom: 1px solid #e7e7e7;
+        padding: 10px 20px 20px 20px;
 
         .expert-header {
           position: absolute;
@@ -228,7 +224,7 @@ html, body {
 
         .expert-shop-location {
           position: absolute;
-          right: 20px;
+          right: 0px;
           top: 20px;
           width: 250px;
           height: 150px;
@@ -242,71 +238,111 @@ html, body {
 
       .report-container {
         width: 700px;
-        padding: 20px;
+        padding: 20px 0 0 0;
         box-sizing: border-box;
 
         .stream {
           position: relative;
           display: inline-block;
           vertical-align: top;
-          width: 33%;
+          width: 211px;
           overflow: hidden;
+          padding-left: 20px;
+          box-sizing: content-box;
 
-          .stream-header {
-            width: 175px;
-            height: 30px;
-            margin: auto;
-            border-radius: 20px;
-            background-color: $fake-black;
-            color: $fake-white;
-            text-align: center;
-            line-height: 30px;
-            font-size: 16px;
-            font-weight: normal;
+          .grade-a {
+            background-color: #00B35D;
           }
 
-          .stream-line {
-            position: absolute;
-            width: 5px;
-            height: 100%;
-            background-color: $fake-black;
-            left: 65px;
+          .grade-b {
+            background-color: #cdd151;
+          }
+
+          .grade-c {
+            background-color: #d18323;
+          }
+
+          .grade-d {
+            background-color: #d12e2f;
+          }
+
+          .stream-header {
+            position: relative;
+            width: 175px;
+            height: 30px;
+
+            .stream-grade {
+              position: absolute;
+              left: 0px;
+              height: 30px;
+              width: 30px;
+              font-size: 24px;
+              font-weight: 300;
+              line-height: 30px;
+              color: $fake-white;
+              text-align: center;
+            }
+
+            .stream-label {
+              position: absolute;
+              right: 0px;
+              height: 30px;
+              width: 145px;
+              background-color: #e7e7e7;
+              color: $fake-black;
+              text-align: center;
+              line-height: 30px;
+              font-size: 16px;
+              font-weight: normal;
+            }
           }
 
           .stream-list-container {
+            position: relative;
             width: 150px;
-            margin: auto;
+            height: 25px;
+            border-bottom: 1px solid #777777;
+            margin: 10px 0 10px 20px;
 
             .stream-grade {
-              margin: 4px 0 0 0;
-              display: inline-block;
+              position: absolute;
+              left: 0px;
               width: 25px;
               height: 25px;
               color: white;
-              font-weight: bold;
+              font-size: 16px;
+              font-weight: 300;
               line-height: 25px;
               text-align: center;
-
-              &.grade-a {
-                background-color: #00B35D;
-              }
-
-              &.grade-b {
-                background-color: #cdd151;
-              }
-
-              &.grade-c {
-                background-color: #d18323;
-              }
-
-              &.grade-d {
-                background-color: #d12e2f;
-              }
             }
 
             .stream-description {
-              display: inline-block;
-              margin: 4px 0 0 10px;
+              position: absolute;
+              right: 25px;
+              width: 95px;
+              font-size: 14px;
+              line-height: 25px;
+              font-weight: 300;
+              color: $fake-black
+            }
+
+            i.fa-question {
+              position: absolute;
+              right: -25px;
+              height: 25px;
+              width: 25px;
+              line-height: 25px;
+              color: #777777;
+            }
+
+            i.fa-angle-right {
+              position: absolute;
+              left: -15px;
+              height: 25px;
+              width: 15px;
+              line-height: 25px;
+              font-weight: bold;
+              color: #777777;
             }
           }
         }
@@ -314,7 +350,7 @@ html, body {
     }
 
     &.detail {
-      background-color: #e0e0e0;
+      background-color: #e7e7e7;
       border-bottom: 1px solid #dddddd;
       border-top: 1px solid #dddddd;
 
@@ -325,8 +361,9 @@ html, body {
         top: 20px;
         width: 200px;
         height: 300px;
-        background-color: #f7f7f7;
-        box-shadow: 2px 2px 2px $fake-black;
+        border: 1px solid #f7f7f7;
+        border-top: 1px solid #f7f7f7;
+        border-bottom: 1px solid #f7f7f7;
 
         .info-header {
           position: absolute;
@@ -336,9 +373,8 @@ html, body {
           height: 30px;
           text-align: center;
           line-height: 30px;
-          color: $fake-white;
-          background-color: $primary-color;
-          box-shadow: 2px 2px 2px $fake-black;
+          color: $fake-black;
+          background-color: #e7e7e7;
           z-index: 10;
         }
 
@@ -457,7 +493,7 @@ html, body {
             background-color: #777;
 
             div {
-              background-color: #e7e7e7;
+              background-color: #eeeeee;
               margin-left: 10px;
               padding-left: 10px;
               height: 30px;
@@ -490,8 +526,8 @@ html, body {
             }
 
             td.active {
-              background-color: #e7e7e7;
-              border-color: #e7e7e7;
+              background-color: #eeeeee;
+              border-color: #eeeeee;
               font-weight: 300;
               box-shadow: 2px 2px 2px #333333;
               z-index: 2;
