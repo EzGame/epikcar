@@ -1,20 +1,25 @@
-$primary-color-dawn: #86C5EE;
-$primary-color-lite: #59ADE4;
-$primary-color: #359ADC;
-$primary-color-dark: #1086D2;
-$primary-color-dusk: #0666A5;
-
-$secondary-color: #2CE28A;
-$secondary-color-lite: #81F0BB;
-$secondary-color-dark: #00B35D;
-$tertiary-color: #454DE1;
+// Place all the styles related to the advert controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+$primary-color-dawn: #D0E0E3;
+$primary-color-lite: #A2C4C9;
+$primary-color: #76A5AF;
+$primary-color-dark: #45818E;
+$primary-color-dusk: #134F5C;
 
 $desktop-width: 700px;
 $fake-white: #f7f7f7;
 $fake-black: #333;
 
-// GENERAL STUFF
+/* MIXINS */
+@mixin square-icon($dimension) {
+  height: $dimension;
+  width: $dimension;
+  line-height: $dimension;
+  text-align: center;
+}
 
+/* GENERAL CSS */
 html, body {
   padding: 0;
   margin: 0;
@@ -26,7 +31,8 @@ html, body {
   font-family: 'Montserrat';
 }
 
-// HEADER STUFF
+
+/* #HEADER START */
 #header {
   background-color: white;
   position: absolute;
@@ -47,8 +53,10 @@ html, body {
     }
   }
 }
+/* #HEADER STOP */
 
-// FOOTER STUFF
+
+/* #FOOTER START */
 #footer {
   background-color: $fake-black;
   height: 140px;
@@ -86,10 +94,12 @@ html, body {
     }
   }
 }
+/* #FOOTER END */
+
 
 // MAIN CONTENT
 #main {
-  background-color: $primary-color-dusk;
+  background-color: $primary-color-dark;
   padding-top: 35px;
 
   .carousel-container {
@@ -167,16 +177,120 @@ html, body {
         padding: 20px 0px 0px 0px;
       }
 
+      /* REPORT START */
+      .report-container {
+        width: 450px;
+        padding: 20px 0 20px 0;
+
+        .stream {
+          position: relative;
+          vertical-align: top;
+          overflow: hidden;
+          padding-left: 20px;
+          box-sizing: content-box;
+
+          .grade-a {
+            background-color: #93C47D;
+          }
+
+          .grade-b {
+            background-color: #FFD966;
+          }
+
+          .grade-c {
+            background-color: #F6B26B;
+          }
+
+          .grade-d {
+            background-color: #E06666;
+          }
+
+          .stream-header {
+            position: relative;
+            width: 100%;
+            height: 30px;
+
+            .stream-grade {
+              position: absolute;
+              left: 0px;
+              font-size: 24px;
+              font-weight: 300;
+              color: $fake-white;
+              @include square-icon(30px);
+            }
+
+            .stream-label {
+              position: absolute;
+              left: 30px;
+              height: 30px;
+              width: 380px;
+              background-color: #e7e7e7;
+              color: $fake-black;
+              padding-left: 20px;
+              text-align: left;
+              line-height: 30px;
+              font-size: 16px;
+              font-weight: normal;
+            }
+          }
+
+          .stream-list-container {
+            position: relative;
+            width: 400px;
+            height: 25px;
+            border-bottom: 1px solid #e7e7e7;
+            margin: 10px 0 10px 30px;
+
+            .stream-grade {
+              position: absolute;
+              left: 0px;
+              color: white;
+              font-size: 16px;
+              font-weight: 300;
+              @include square-icon(25px);
+            }
+
+            .stream-description {
+              position: absolute;
+              left: 50px;
+              font-size: 14px;
+              line-height: 25px;
+              font-weight: 300;
+              color: $fake-black
+            }
+
+            i.fa-question {
+              position: absolute;
+              right: 0px;
+              color: #777777;
+              @include square-icon(25px);
+            }
+
+            i.fa-angle-right {
+              position: absolute;
+              left: -25px;
+              font-weight: bold;
+              color: #777777;
+              @include square-icon(25px);
+            }
+          }
+        }
+      }
+      /* REPORT END */
+
       .expert-container {
-        position: relative;
-        color: $fake-black;
-        padding: 10px 20px 20px 20px;
+        position: absolute;
+        right: 0px;
+        top: 59px;
+        width: 230px;
+        height: 350px;
+        border: 1px solid #e7e7e7;
 
         .expert-header {
           position: absolute;
           top: -15px;
-          left: 20px;
-          width: 200px;
+          right: 10px;
+          width: 150px;
           height: 30px;
           text-align: center;
           line-height: 30px;
@@ -186,179 +300,68 @@ html, body {
         }
 
         .expert-information {
-          width: 400px;
           height: 175px;
           font-size: 14px;
           font-weight: 300;
 
           .expert-photo {
-            display: inline-block;
-            vertical-align: top;
-            padding-right: 10px;
+            position: relative;
+            width: 70px;
+            height: 70px;
+            padding: 20px 10px 10px 10px;
+            z-index: 0;
 
             img {
-              height: 120px;
-              width: 120px;
+              height: 70px;
+              width: 70px;
             }
           }
 
           .expert-contact {
-            margin-top: 10px;
-            margin-left: 20px;
-            display: inline-block;
-            vertical-align: top;
+            position: absolute;
+            top: 20px;
+            right: 25px;
+            font-size: 12px;
 
             .fa-star {
               color: gold;
             }
           }
 
+          .expert-shop-location {
+            position: absolute;
+            right: 10px;
+            bottom: 10px;
+            width: 210px;
+            height: 150px;
+            overflow: hidden;
+
+            img {
+              width: 210px;
+            }
+          }
+
           .expert-description {
             padding-top: 3px;
-            height: 40px;
-            vertical-align: middle;
+            width: 210px;
+            margin: auto;
             font-size: 12px;
-            width: 400px;
-          }
-        }
-
-        .expert-shop-location {
-          position: absolute;
-          right: 0px;
-          top: 20px;
-          width: 250px;
-          height: 150px;
-          overflow: hidden;
-
-          img {
-            width: 250px;
-          }
-        }
-      }
-
-      .report-container {
-        width: 700px;
-        padding: 20px 0 0 0;
-        box-sizing: border-box;
-
-        .stream {
-          position: relative;
-          display: inline-block;
-          vertical-align: top;
-          width: 211px;
-          overflow: hidden;
-          padding-left: 20px;
-          box-sizing: content-box;
-
-          .grade-a {
-            background-color: #00B35D;
-          }
-
-          .grade-b {
-            background-color: #cdd151;
-          }
-
-          .grade-c {
-            background-color: #d18323;
-          }
-
-          .grade-d {
-            background-color: #d12e2f;
-          }
-
-          .stream-header {
-            position: relative;
-            width: 175px;
-            height: 30px;
-
-            .stream-grade {
-              position: absolute;
-              left: 0px;
-              height: 30px;
-              width: 30px;
-              font-size: 24px;
-              font-weight: 300;
-              line-height: 30px;
-              color: $fake-white;
-              text-align: center;
-            }
-
-            .stream-label {
-              position: absolute;
-              right: 0px;
-              height: 30px;
-              width: 145px;
-              background-color: #e7e7e7;
-              color: $fake-black;
-              text-align: center;
-              line-height: 30px;
-              font-size: 16px;
-              font-weight: normal;
-            }
-          }
-
-          .stream-list-container {
-            position: relative;
-            width: 150px;
-            height: 25px;
-            border-bottom: 1px solid #777777;
-            margin: 10px 0 10px 20px;
-
-            .stream-grade {
-              position: absolute;
-              left: 0px;
-              width: 25px;
-              height: 25px;
-              color: white;
-              font-size: 16px;
-              font-weight: 300;
-              line-height: 25px;
-              text-align: center;
-            }
-
-            .stream-description {
-              position: absolute;
-              right: 25px;
-              width: 95px;
-              font-size: 14px;
-              line-height: 25px;
-              font-weight: 300;
-              color: $fake-black
-            }
-
-            i.fa-question {
-              position: absolute;
-              right: -25px;
-              height: 25px;
-              width: 25px;
-              line-height: 25px;
-              color: #777777;
-            }
-
-            i.fa-angle-right {
-              position: absolute;
-              left: -15px;
-              height: 25px;
-              width: 15px;
-              line-height: 25px;
-              font-weight: bold;
-              color: #777777;
-            }
           }
         }
       }
     }
 
+    /* .DETAIL START */
     &.detail {
       background-color: #e7e7e7;
       border-bottom: 1px solid #dddddd;
       border-top: 1px solid #dddddd;
 
-      // SIDE BAR
+      /* .INFO-CONTAINER START*/
       .info-container {
         position: absolute;
         right: 0px;
-        top: 20px;
+        top: 59px;
         width: 200px;
         height: 300px;
         border: 1px solid #f7f7f7;
@@ -414,11 +417,9 @@ html, body {
               left: 0px;
               top: 0px;
               font-size: 24px;
-              line-height: 30px;
-              text-align: center;
-              width: 30px;
               background-color: $primary-color;
               color: $fake-white;
+              @include square-icon(30px)
             }
 
             .cube {
@@ -465,8 +466,8 @@ html, body {
           }
         }
       }
+      /* .INFO-CONTAINER START*/
 
-      // CONTENT
       .detail-description {
         font-weight: 300;
         padding: 10px 50px 10px 20px;
@@ -535,7 +536,8 @@ html, body {
           }
         }
       }
-    } // DETAIL END
+    }
+    /* DETAIL END */
 
     &.misc {
       border-top: 1px solid #dddddd;
