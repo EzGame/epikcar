@@ -8,7 +8,6 @@ Rails.application.config.assets.version = '1.0'
 
 # Precompile additional assets.
 # application.js, application.css, and all non-JS/CSS in app/assets folder are already added.
-Rails.application.config.assets.precompile += %w( search.css )
 Rails.application.config.assets.precompile += %w( jquery.js )
 Rails.application.config.assets.precompile += %w( animate.css )
 Rails.application.config.assets.precompile += %w( font-awesome.css )
@@ -16,5 +15,7 @@ Rails.application.config.assets.precompile += %w( bootstrap.css )
 Rails.application.config.assets.precompile += %w( bootstrap.js )
 Rails.application.config.assets.precompile += %w( owl.carousel.css )
 Rails.application.config.assets.precompile += %w( owl.carousel.js )
-Rails.application.config.assets.precompile += %w( report.css )
 Rails.application.config.assets.precompile += %w( advert.css )
+Rails.application.config.assets.precompile += %w( home.css )
+Rails.application.config.assets.precompile += %w( search.css )
+Rails.application.config.assets.precompile += %w( home.js )

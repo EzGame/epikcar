@@ -1,0 +1,109 @@
+// Place all the styles related to the home controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+$desktop-width: 700px;
+$mobile-width: 480px;
+
+@mixin body-text {
+  font-family: 'Lato', sans-serif;
+}
+
+@mixin title-text {
+  font-family: 'Montserrat', sans-serif;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  min-width: 700px;
+}
+
+#header {
+  @include title-text;
+  position: fixed;
+  top: 10px;
+  width: 100%;
+  height: 80px;
+
+  .header-container {
+    float: right;
+    margin-right: 50px;
+
+    .header-link {
+      font-weight: 100;
+      font-size: 14px;
+      color: white;
+      padding: 0 5px;
+      float: right;
+    }
+  }
+}
+
+#footer {
+  @include body-text;
+  background-color: #333333;
+  height: 140px;
+
+  .footer-container {
+    width: $desktop-width;
+    margin: auto;
+    padding: 30px 0px;
+
+    .left {
+      float: left;
+      color: white;
+
+      a {
+        display: block;
+        text-decoration: none;
+
+        &:visited {
+          color: white;
+        }
+      }
+
+      i {
+        padding: 3px 6px 3px 0px;
+        display: inline-block;
+      }
+    }
+
+    .right {
+      float: right;
+      width: 300px;
+      font-weight: 300;
+      font-size: 10px;
+      color: white;
+    }
+  }
+}
+
+#hero {
+  background: #3c82f4; /* Old browsers */
+  background: -moz-linear-gradient(45deg,  #3c82f4 0%, #e82c8a 100%); /* FF3.6+ */
+  background: -webkit-gradient(linear, left bottom, right top, color-stop(0%,#3c82f4), color-stop(100%,#e82c8a)); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(45deg,  #3c82f4 0%,#e82c8a 100%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(45deg,  #3c82f4 0%,#e82c8a 100%); /* Opera 11.10+ */
+  background: -ms-linear-gradient(45deg,  #3c82f4 0%,#e82c8a 100%); /* IE10+ */
+  background: linear-gradient(45deg,  #3c82f4 0%,#e82c8a 100%); /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3c82f4', endColorstr='#e82c8a',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+
+  width: 100%;
+  height: 700px;
+}
+
+#info1 {
+  height: 500px;
+  background-color: #f7f7f7;
+}
+
+#info2 {
+  height: 500px;
+  background-color: #e7e7e7;
+}
+
+#info3 {
+  height: 500px;
+  background-color: #f7f7f7;
+}

@@ -1,14 +1,53 @@
-EPIKCAR HOME PAGE
 <html>
 <head>
+  <title>Epikcar</title>
+  <!-- TODO: Home page SEO -->
+  <%= csrf_meta_tags %>
+  <%= stylesheet_link_tag 'home' -%>
+  <%= stylesheet_link_tag 'animate' -%>
+  <%= javascript_include_tag 'jquery' -%>
+  <%= javascript_include_tag 'home' -%>
 
+  <link href='//fonts.googleapis.com/css?family=Montserrat'
+        rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700'
+        rel='stylesheet' type='text/css'>
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css"
+        rel="stylesheet" >
 </head>
 <body>
-  <div id="header"></div>
-  <div id="hero"></div>
-  <div id="info1"></div>
-  <div id="info2"></div>
-  <div id="info3"></div>
-  <div id="footer"></div>
+<div id="header" class="animated fadeIn">
+  <div class="header-container">
+    <a class="header-link">HOW IT WORKS</a>
+    <a class="header-link">LEARN MORE</a>
+    <a class="header-link">CONTACT</a>
+    <a class="header-link">LOGIN</a>
+  </div>
+</div>
+<div id="hero"></div>
+<div id="info1"></div>
+<div id="info2"></div>
+<div id="info3"></div>
+<div id="footer">
+  <div class="footer-container">
+    <div class="left">
+      <a href="">Discover more</a>
+      <a href="">About us</a>
+      <a href="">Contact</a>
+      <i class="fa fa-facebook-f"></i>
+      <i class="fa fa-twitter"></i>
+      <i class="fa fa-google-plus"></i>
+    </div>
+    <div class="right">
+      Bacon ipsum dolor amet chuck drumstick alcatra,
+      shankle cupim meatloaf short ribs biltong salami
+      leberkas pork. Pork prosciutto tri-tip shoulder
+      venison t-bone hamburger kielbasa drumstick.
+      T-bone short ribs spare ribs strip steak beef
+      ribs kevin. Shank biltong pork turducken ground
+      round filet mignon pig jerky kevin ham hock.
+    </div>
+  </div>
+</div>
 </body>
 </html>
