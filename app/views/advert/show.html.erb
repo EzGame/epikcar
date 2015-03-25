@@ -4,7 +4,7 @@
   <!-- TODO: SEO this shit -->
   <%= csrf_meta_tags %>
   <%= yield :head %>
-  <%= stylesheet_link_tag 'advert' -%>
+  <%= stylesheet_link_tag 'ad' -%>
   <%= stylesheet_link_tag 'animate' -%>
   <%= javascript_include_tag 'jquery' -%>
 
@@ -50,10 +50,10 @@
         </div>
 
         <!--TODO: This should be a model -->
-        <%= render "advert/components/report" -%>
+        <%= render "ad/components/report" -%>
 
         <!--TODO: This should be a model -->
-        <%= render "advert/components/expert" %>
+        <%= render "ad/components/expert" %>
       </div>
     </div> <!--SECTION REPORT-->
 

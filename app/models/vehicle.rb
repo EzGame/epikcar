@@ -1,3 +1,3 @@
 class Vehicle < ActiveRecord::Base
-  belongs_to :advert
+  belongs_to :ad
 end

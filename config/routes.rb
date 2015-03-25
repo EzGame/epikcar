@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   root 'home#show'
-  resources :advert
+  resources :ad
   resources :search
   resources :home, only: [:show]
 end
