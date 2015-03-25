@@ -1,7 +1,7 @@
 class CreateImages < ActiveRecord::Migration
   def up
     create_table :images do |t|
-      t.belongs_to :advert
+      t.belongs_to :advert, :index => true
 
       t.string :image_url
       t.timestamps null: false

@@ -1,4 +1,6 @@
 class Ad < ActiveRecord::Base
+  #### HAS ####
+  has_one :report
   has_one :vehicle
   has_many :images
 

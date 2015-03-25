@@ -4,6 +4,6 @@ class RenameTableAdvertToAd < ActiveRecord::Migration
   end
 
   def self.down
-    rename_table :ads, :advertsg
+    rename_table :ads, :adverts
   end
 end
