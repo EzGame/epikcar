@@ -35,11 +35,12 @@ ActiveRecord::Schema.define(version: 20150325224830) do
 
   create_table "report_attributes", force: :cascade do |t|
     t.integer  "report_id"
-    t.string   "description", null: false
-    t.boolean  "result",      null: false
+    t.integer  "severity",    default: 1, null: false
+    t.string   "description",             null: false
+    t.boolean  "result",                  null: false
     t.string   "comment"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
   end
 
   add_index "report_attributes", ["report_id"], name: "index_report_attributes_on_report_id"

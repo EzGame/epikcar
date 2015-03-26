@@ -2,6 +2,7 @@ class CreateReportAttributes < ActiveRecord::Migration
   def self.up
     create_table :report_attributes do |t|
       t.belongs_to :report, :index => true
+      t.integer :severity, :null => false, :default => 1
       t.string :description, :null => false
       t.boolean :result, :null => false
       t.string :comment
