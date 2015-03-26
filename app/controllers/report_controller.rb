@@ -10,7 +10,11 @@ class ReportController < ApplicationController
 
   # TODO: Requires admin
   def create
-    # redirect to ad page
+    ad = Ad.find params[:ad_id]
+    ad.report = Report.create_from_form params[:report]
+
+    redirect_to ad_url(:id => params[:ad_id]),
+                :notice => 'Report has been created!'
   end
 
   # TODO: Requires admin

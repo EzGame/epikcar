@@ -86,7 +86,7 @@ class Report < ActiveRecord::Base
   belongs_to :ad
 
   #### HAS ####
-  has_many :report_attributes
+  has_many :report_attributes, :dependent => :destroy
 
   class << self
 
@@ -98,5 +98,27 @@ class Report < ActiveRecord::Base
       }
     end
 
+    def create_from_form( form )
+      report = Report.new
+
+      attributes = []
+      form.each do |field, value|
+        attr = ReportAttribute.new(
+          :description => field,
+          :result => value == 'pass' ?
+              true : false,
+        )
+        attributes << attr
+      end
+      report.report_attributes = attributes
+
+      report
+    end
+
+    private
+
+    def find_severity( attribute )
+      # TODO: some sort of reverse hash search. Think about how to do this
+    end
   end
 end
