@@ -25,13 +25,13 @@ ActiveRecord::Schema.define(version: 20150325224830) do
   end
 
   create_table "images", force: :cascade do |t|
-    t.integer  "advert_id"
+    t.integer  "ad_id"
     t.string   "image_url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  add_index "images", ["advert_id"], name: "index_images_on_advert_id"
+  add_index "images", ["ad_id"], name: "index_images_on_ad_id"
 
   create_table "report_attributes", force: :cascade do |t|
     t.integer  "report_id"
@@ -53,7 +53,7 @@ ActiveRecord::Schema.define(version: 20150325224830) do
   add_index "reports", ["ad_id"], name: "index_reports_on_ad_id"
 
   create_table "vehicles", force: :cascade do |t|
-    t.integer  "advert_id"
+    t.integer  "ad_id"
     t.string   "make",       null: false
     t.string   "year",       null: false
     t.string   "model",      null: false
@@ -62,6 +62,6 @@ ActiveRecord::Schema.define(version: 20150325224830) do
     t.datetime "updated_at", null: false
   end
 
-  add_index "vehicles", ["advert_id"], name: "index_vehicles_on_advert_id"
+  add_index "vehicles", ["ad_id"], name: "index_vehicles_on_ad_id"
 
 end

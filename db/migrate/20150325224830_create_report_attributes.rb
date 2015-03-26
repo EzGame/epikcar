@@ -8,4 +8,8 @@ class CreateReportAttributes < ActiveRecord::Migration
       t.timestamps null: false
     end
   end
+
+  def self.down
+    drop_table :report_attributes
+  end
 end

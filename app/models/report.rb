@@ -4,5 +4,4 @@ class Report < ActiveRecord::Base
 
   #### HAS ####
   has_many :report_attributes
-
 end
