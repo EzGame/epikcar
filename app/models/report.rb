@@ -88,6 +88,15 @@ class Report < ActiveRecord::Base
   #### HAS ####
   has_many :report_attributes
 
-  def self.attributes
+  class << self
+
+    def attributes
+      return {
+        "Powertrain" => POWERTRAIN_ATTRIBUTES,
+        "Chassis" => CHASSIS_ATTRIBUTES,
+        "Exterior" => EXTERIOR_ATTRIBUTES
+      }
+    end
+
   end
 end

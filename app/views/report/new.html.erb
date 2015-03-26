@@ -1,0 +1,46 @@
+<html>
+<head>
+  <title>Epikcar</title>
+  <!-- TODO: SEO this shit -->
+  <%= csrf_meta_tags %>
+  <%= stylesheet_link_tag 'report' -%>
+  <%= stylesheet_link_tag 'animate' -%>
+  <%= javascript_include_tag 'jquery' -%>
+  <link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700'
+        rel='stylesheet' type='text/css'>
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css"
+        rel="stylesheet">
+</head>
+<body>
+<div id="wrapper">
+  <%= form_tag ad_report_index_path do |f| %>
+    <% @report_attributes.each do |section, headings|%>
+
+      <h1><%= section -%></h1>
+      <% headings.each do |heading, attributes| %>
+
+        <h3><%= heading -%></h2>
+        <% attributes.each do |attribute, severity| %>
+
+          <label class="<%= severity -%>"><%= attribute -%></label>
+          <div class="btn pass">
+            <label>Pass</label>
+            <%= radio_button "report", attribute, "pass",
+                             {:class => "pass"} -%>
+          </div><div class="btn fail">
+            <label>Fail</label>
+            <%= radio_button "report", attribute, 'fail',
+                             {:class => "fail"} -%>
+          </div>
+
+        <% end %>
+
+      <% end %>
+
+    <% end %>
+
+    <%= submit_tag 'Create' -%>
+  <% end %>
+</div>
+</body>
+</html>

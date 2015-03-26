@@ -5,12 +5,12 @@ class ReportController < ApplicationController
   # TODO: maybe scope this under admin
   # TODO: Requires admin
   def new
-
+    @report_attributes = Report.attributes
   end
 
   # TODO: Requires admin
   def create
-
+    # redirect to ad page
   end
 
   # TODO: Requires admin
