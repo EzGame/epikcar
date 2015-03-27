@@ -1,20 +1,14 @@
-<html>
-<head>
-  <title>Epikcar</title>
-  <!-- TODO: Home page SEO -->
-  <%= csrf_meta_tags %>
-  <%= stylesheet_link_tag 'home' -%>
-  <%= stylesheet_link_tag 'animate' -%>
-  <%= javascript_include_tag 'jquery' -%>
-  <%= javascript_include_tag 'home' -%>
+<% content_for :application_header do %>
+<%= stylesheet_link_tag 'home' -%>
+<%= javascript_include_tag 'home' -%>
 
-  <link href='//fonts.googleapis.com/css?family=Montserrat'
-        rel='stylesheet' type='text/css'>
-  <link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700'
-        rel='stylesheet' type='text/css'>
-  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css"
-        rel="stylesheet" >
-</head>
+<link href='//fonts.googleapis.com/css?family=Montserrat'
+      rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700'
+      rel='stylesheet' type='text/css'>
+<% end %>
+
+<% content_for :application_body do %>
 <body>
 <div id="header" class="animated fadeIn">
   <div class="header-container">
@@ -28,6 +22,7 @@
 <div id="info1"></div>
 <div id="info2"></div>
 <div id="info3"></div>
+
 <div id="footer">
   <div class="footer-container">
     <div class="left">
@@ -50,4 +45,4 @@
   </div>
 </div>
 </body>
-</html>
+<% end %>

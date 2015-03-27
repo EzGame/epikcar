@@ -6,6 +6,8 @@ class ReportController < ApplicationController
   # TODO: Requires admin
   def new
     @report_attributes = Report.attributes
+
+    render :layout => "application"
   end
 
   # TODO: Requires admin
